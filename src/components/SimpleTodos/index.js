@@ -1,3 +1,8 @@
+import {Component} from 'react'
+import TodoItem from '../TodoItem'
+
+import './index.css'
+
 const initialTodosList = [
   {
     id: 1,
@@ -34,3 +39,28 @@ const initialTodosList = [
 ]
 
 // Write your code here
+
+class SimpleTodos extends Component {
+  state = {
+    todosList: initialTodosList,
+  }
+
+  render() {
+    const {todosList} = this.state
+
+    return (
+      <div>
+        <div>
+          <h1> Simple Todos </h1>
+          <ul>
+            {todosList.map(eachTodo => (
+              <TodoItem key={eachTodo.id} todoDetails={eachTodo} />
+            ))}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default SimpleTodos
